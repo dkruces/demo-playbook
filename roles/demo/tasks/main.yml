@@ -1,0 +1,27 @@
+---
+- name: Ping hosts
+  ansible.builtin.ping:
+
+- name: Print message
+  ansible.builtin.debug:
+   msg: Hello world
+
+- name: Print os_family variable
+  ansible.builtin.debug:
+    var: ansible_facts['os_family']
+
+- name: debian-tasks
+  import_tasks: debian/main.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Display all variables/facts known for a host
+  ansible.builtin.debug:
+    var: hostvars[inventory_hostname]
+
+- name: Print the shell type env
+  debug:
+    msg: "The current shell is: {{ ansible_env.SHELL }}"
+
+- name: Print the list variable
+  debug:
+    msg: "The list is: {{ demo_listvar0 }}"

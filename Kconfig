@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0
+config DEMO_PLAYBOOK_ENABLED
+	bool "Enable demo playbook?"
+	default n
+	help
+	  Enable demo-playbook.

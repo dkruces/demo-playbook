@@ -1,0 +1,16 @@
+---
+- name: Get contents of /etc/os-release
+  command: cat /etc/os-release
+  register: os_release_output
+
+- name: Print /etc/os-release
+  debug:
+    msg: "{{ os_release_output.stdout }}"
+
+- name: Get contents of uname
+  command: /usr/bin/uname --all
+  register: uname_all
+
+- name: Print uname
+  debug:
+    msg: "{{ uname_all.stdout }}"
